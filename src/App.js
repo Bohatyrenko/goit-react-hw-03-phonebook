@@ -80,7 +80,7 @@ function App() {
   const contacts = getFilteredContacts(state.contacts, state.filter);
 
   return (
-    <div className="App" style={{marginLeft: '50%', marginRight: '50%'}}>
+    <div className="App" style={{ marginLeft: '50%', marginRight: '50%' }}>
       <h1>Phonebook</h1>
       <ContactForm
         onSetName={handleSetName}
@@ -93,7 +93,9 @@ function App() {
         // optionsTel={this.handleTelChange}
       />
       <h2>Contacts</h2>
-      <ContactFilter onSetFilter={handleSetName} filter={state.filter} />
+      {state.contacts.length > 1 && (
+        <ContactFilter onSetFilter={handleSetName} filter={state.filter} />
+      )}
       <ContactList contacts={contacts} onDeleteContact={handleDeleteContact} />
     </div>
   );
